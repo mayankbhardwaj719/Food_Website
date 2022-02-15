@@ -1,0 +1,45 @@
+version: '3.7'
+services: 
+  backend: 
+    build: ./backend
+    restart: always
+    volumes:
+      - ./backend:/backend
+      - ./backend/node_modules
+    networks:
+      - web-net
+  
+  frontend:
+    build: ./frontend
+    restart: unless-stopped
+    volumes:
+      - ./frontend:/frontend
+      - ./frontend/node_modules
+    environment:
+      # - REACT_APP_USER_ID=user_vNBAStcuIRCdghDxao5wF
+      # - REACT_APP_ACCESS_TOKEN=a71ce4b4ab9574dd0d88aedb4ba52878
+      - NODE_ENV=development
+      # as soon as anything changes in this file then everything is rebuild
+      - CHOKIDAR_USEPOLLING='true'
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
+    networks:
+      - web-net
+  
+  nginx:
+    image: nginx:latest
+    ports:
+      - "8000:80"
+    volumes:
+      - ./nginx:/etc/nginx/conf.d/
+    depends_on:
+      - frontend
+      - backend
+    networks:
+      - web-net
+
+networks:
+  web-net:
+    driver: bridge

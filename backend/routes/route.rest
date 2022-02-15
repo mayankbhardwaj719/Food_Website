@@ -1,0 +1,191 @@
+GET /api/Buyer
+
+###
+
+POST /api/Buyer/register
+Content-Type: application/json
+
+{
+    "Name":"Mayank bhardwaj",
+    "Email":"mayank.bhardwaj@gmail.com",
+    "Contact_Number":"9013227858",
+    "Age":"21",
+    "Batch_Name":"UG2",
+    "Password":"MAYANK--"
+}
+
+###
+
+POST /api/Buyer/login
+Content-Type: application/json
+
+{
+    "Email":"bakchod@gmail.com",
+    "Password":"shreyash"
+
+}
+
+###
+GET /api/Vendor
+
+###
+POST /api/Vendor/register
+Content-Type: application/json
+
+{
+    "Manager_Name":"Ma bhaj",
+    "Email":"mayank.bhardwaj@gmail.com",
+    "Contact_Number":"9013227855",
+    "Age":"21",
+    "Shop_Name":"Raja-shop",
+    "Opening_Time":"1:30",
+    "Closing_Time":"2:30",
+    "Password":"darth vader"
+}
+
+###
+POST /api/Vendor/login
+Content-Type: application/json
+
+{
+    "Email":"shreyash.x@gmail.com",
+    "Password":"asliyat"
+
+}
+
+###
+
+POST /api/Buyer/profile
+Content-Type: application/json
+
+{
+    "Email":"mayank.bhardwaj@gmail.com"
+
+}
+
+###
+POST /api/Buyer/Edit_profile
+Content-Type: application/json
+
+{
+    "Email":"mayank.bhardwaj@gmail.com",
+    "Name":"MaMa",
+    "Contact_Number":"91",
+    "Age":"3",
+    "Batch_Name":"UG3",
+    "Password":"M"
+}
+###
+POST /api/Vendor/Edit_profile
+Content-Type: application/json
+
+{
+    "Manager_Name":"Ma",
+    "Email":"mayank.bhardwaj@gmail.com",
+    "Contact_Number":"93227855",
+    "Age":"24",
+    "Shop_Name":"Raja",
+    "Opening_Time":"1:40",
+    "Closing_Time":"2:50",
+    "Password":"darder"
+}
+###
+GET /api/Food_Item
+
+###
+
+POST /api/Food_Item/Add_Food_Item
+Content-Type: application/json
+
+{
+    "Item_Name" : "chocochip",
+    "Price" : 30,
+    "Vegetarian" : true,
+    "Addons" : [{"addon":"caramel","price":10},{"addon":"white_chocolate","price":20}],
+    "Tags" : ["cold","dark"],
+    "Email" : "mamba"
+}
+
+###
+POST /api/Food_Item/Edit_Food_Item
+Content-Type: application/json
+
+{
+    "Item_Name" : "late",
+    "_id": "61f08a103472c3d64a5f0196",
+    "Price" : 23,
+    "Vegetarian" : false,
+    "Addons" : [{"addon":"ha","price":10},{"addon":"ar","price":20}],
+    "Tags" : ["note","green"]
+}
+
+###
+POST /api/Food_Item/Delete_Food_Item
+Content-Type: application/json
+
+{
+    "_id" : "61f06c5553f38247d0ed9e7b"
+}
+
+###
+POST /api/Buyer/wallet
+Content-Type: application/json
+
+{
+    "Email":"mayank@gmail.com",
+    "Wallet":0
+
+}
+
+###
+POST /api/Order
+Content-Type: application/json
+
+{
+    "Shop_Name": "ajeeb"
+}
+
+###
+POST /api/Order/add_Order
+Content-Type: application/json
+
+{
+    "Placed_Time" : "12:30",
+    "Vendor_Name": "ajeeb",
+    "Rating": 1,
+    "Food_Item": "dal_chole",
+    "Quantity": 3,
+    "Status": "PLACED",
+    "Addon": ["Cheese","potato"],
+    "Buyer_Email": "mayank@gmail.com",
+    "Cost": 20
+}
+
+###
+POST /api/Order/update_status
+Content-Type: application/json
+
+{
+    "_id" : "61f1f2a1e6edb84ad1734879",
+    "Status": "PLACED"
+}
+
+###
+POST /api/Order/reject_status
+Content-Type: application/json
+
+{
+    "_id" : "61f1e7742d0e1be9bf14707b",
+    "Buyer_Email" : "mayank@gmail.com",
+    "Cost" : 400
+}
+
+###
+POST /api/Food_Item/update_rating
+Content-Type: application/json
+
+{
+    "Item_Name" : "chocolate",
+    "Vendor_Name" : "ajeeb",
+    "Rating" : 1
+}
