@@ -1,6 +1,3 @@
-# MERN Stack Boilerplate
-
-
 # Work done contained in this assignment
 
 # Food Delivery Web App
